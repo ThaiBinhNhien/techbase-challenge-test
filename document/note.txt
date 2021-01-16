@@ -1,0 +1,31 @@
+#####Framework and Database######
+1.Spring framework
+2.MySQL
+
+#######Config##############
+1. Run sql file in ./database 
+2. Change password mysql db into application.properties file.
+
+=>> Run source (cmd or ide)
+
+######Working#######
+1.Login with url http://localhost:(8080-> default port)/login => user: admin, password: Abc@123456
+2.About Role and menu GUI:
+	+ DIRECTOR_ROLE: Deparment management, Team management, Employee Management
+	+ MANAGER_ROLE: Team Management, Employee Management
+	+ TEAMLEADER_ROLE:Employee Management
+	=> http://localhost:(8080-> default)/profile open for all role
+
+3.About API( not check permission follow by role yet):
+	+ http://localhost:(8080-> default port)/api/v1/department/getall => get all deparment.
+	+ http://localhost:(8080-> default port)/api/v1/teams/getall => get all team
+	+ http://localhost:(8080-> default port)/api/v1/teams/getbyemployee => Get team list employee joined
+	+ http://localhost:(8080-> default port)/api/v1/employees/getall => Get all employee list
+	+ http://localhost:(8080-> default port)/api/v1/employees/getbyteam => get all employe of team (without team leader)
+
+######Plan not yet#############
+1. Deploy project by docker compose
+2. Complete unit test.
+
+###### Thank you for your time to read this note ###########
+

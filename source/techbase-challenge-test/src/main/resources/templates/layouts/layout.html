@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <title>Management Page</title>
+
+        <link href="/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="/plugins/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/modernizr.min.js"></script>
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="text-center">
+                        <a href="index.html" class="logo">Logo</a>
+                    </div>
+                </div>
+
+                <!-- Button mobile view to collapse sidebar menu -->
+                <nav class="navbar-custom">
+
+                    <ul class="list-inline float-right mb-0">
+
+                        <li class="list-inline-item notification-list">
+                        <a class="nav-link waves-light waves-effect nav-user" style="color: white;" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">
+	                        <i style="font-size: 15px;" class="md md-account-circle"></i>
+	                        <span th:text="${'Welcome ! ' + session.user_fullname}">Welcome nhientb@vng.com.vn!</span>
+	                        <i class="md md-arrow-drop-down"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+							<a href="/logout" class="dropdown-item notify-item"> <i class="md md-settings-power"></i> <span>Logout</span>
+							</a>
+						</div></li>
+                    </ul>
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="float-left">
+                            <button class="button-menu-mobile open-left waves-light waves-effect">
+                                <i class="dripicons-menu"></i>
+                            </button>
+                        </li>
+                        <li class="hide-phone app-search">
+                        </li>
+                    </ul>
+
+                </nav>
+
+            </div>
+            <!-- Top Bar End -->
+
+
+            <!-- ========== Left Sidebar Start ========== -->
+
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+                    <!--- Divider -->
+                    <div id="sidebar-menu">
+                        <ul>
+
+                            <li class="text-muted menu-title">Management</li>
+
+                            <li th:if="${session.user_roles >= 3}" class="has_sub">
+                                <a href="/department/list" class="waves-effect"><i class="ti-home"></i> <span> Department </span></a>
+                            </li>
+
+                            <li th:if="${session.user_roles >= 2}" class="has_sub">
+                                <a href="/team/list" class="waves-effect"><i class=" ti-layout-grid2"></i> <span>Team </span></a>
+                            </li>
+
+                            <li th:if="${session.user_roles >= 1}" class="has_sub">
+                                <a href="/employee/list" class="waves-effect"><i class="ti-user"></i><span> Employee </span> </a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                   <div class="container-fluid" layout:fragment="content"></div>
+                </div> <!-- content -->
+
+                <footer class="footer text-right">
+                    &copy; 2016 - 2018. All rights reserved.
+                </footer>
+
+            </div>
+        </div>
+
+        <script>
+            var resizefunc = [];
+        	var csrf_token = '[[${_csrf.token}]]';
+        	var csrf_name = '_csrf';
+        </script>
+
+        <!-- jQuery  -->
+        
+        <script src="/assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/detect.js"></script>
+        <script src="/assets/js/fastclick.js"></script>
+        <script src="/assets/js/jquery.slimscroll.js"></script>
+        <script src="/assets/js/jquery.blockUI.js"></script>
+        <script src="/assets/js/waves.js"></script>
+        <script src="/assets/js/wow.min.js"></script>
+        <script src="/assets/js/jquery.nicescroll.js"></script>
+        <script src="/assets/js/jquery.scrollTo.min.js"></script>
+
+        <!-- Required datatable js -->
+        <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Buttons examples -->
+        <script src="/plugins/datatables/dataTables.buttons.min.js"></script>
+        <script src="/plugins/datatables/buttons.bootstrap4.min.js"></script>
+        <script src="/plugins/datatables/jszip.min.js"></script>
+        <script src="/plugins/datatables/pdfmake.min.js"></script>
+        <script src="/plugins/datatables/vfs_fonts.js"></script>
+        <script src="/plugins/datatables/buttons.html5.min.js"></script>
+        <script src="/plugins/datatables/buttons.print.min.js"></script>
+
+        <!-- Key Tables -->
+        <script src="/plugins/datatables/dataTables.keyTable.min.js"></script>
+
+        <!-- Responsive examples -->
+        <script src="/plugins/datatables/dataTables.responsive.min.js"></script>
+        <script src="/plugins/datatables/responsive.bootstrap4.min.js"></script>
+
+        <!-- Selection table -->
+        <script src="/plugins/datatables/dataTables.select.min.js"></script>
+
+        <!-- App js -->
+        <script src="/assets/js/jquery.core.js"></script>
+        <script src="/assets/js/jquery.app.js"></script>
+
+    </body>
+</html>

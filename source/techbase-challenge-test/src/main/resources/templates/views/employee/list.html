@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+	content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+<meta name="author" content="Coderthemes">
+
+</head>
+
+
+<body class="fixed-left">
+
+	<div id="loadContent" class="container-fluid" layout:fragment="content">
+
+		<!-- Page-Title -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="btn-group pull-right m-t-15">
+					<button id="btn-add-new-employee" data-toggle="modal"
+						class="btn btn-primary waves-effect waves-light total-load-show">
+						<i class="md-add-circle  m-r-5"></i> <span>Create New</span>
+					</button>
+				</div>
+
+				<h4 class="page-title">Employee Management</h4>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="javascipt:void()">Management</a></li>
+					<li class="breadcrumb-item"><a href="/employee/list">Employee</a></li>
+					<li class="breadcrumb-item active">List</li>
+				</ol>
+
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-12">
+				<div class="card-box table-responsive">
+					<h4 class="m-t-0 header-title">Employee List</h4>
+					<p class="text-muted font-14 m-b-30">
+					</p>
+
+					<table id="datatable" class="table table-bordered">
+						<thead>
+							<tr>
+								<th>No.</th>
+								<th>Name</th>
+								<th>User Name</th>
+								<th>Role</th>
+								<th>Last Update</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div id="add-new-employee-modal" class="modal fade" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+			style="display: none;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Employee Information</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="field-1" class="control-label">Employee Name</label>
+									<input type="text" class="form-control" id="employeeName" placeholder="Full Name">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="field-1" class="control-label">User Name</label>
+									<input type="text" class="form-control" id="userName" placeholder="User Name">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="field-1" class="control-label">Password</label>
+									<input type="password" class="form-control" id="password" placeholder="Password">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="field-3" class="control-label">Team</label>
+									<select id="list-team-employee-create" class="custom-select">
+										<option selected>Choose a team</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary waves-effect"
+							data-dismiss="modal">Close</button>
+						<button type="button" id="action-create-new-employee"
+							class="btn btn-info waves-effect waves-light">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="remove-employee-modal" class="modal fade" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+			style="display: none;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Remove Confirm</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+					</div>
+					<div class="modal-body">
+						<p>Do you want remove this employee?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary waves-effect"
+							data-dismiss="modal">Cancel</button>
+						<button type="button" id="action-remove-employee"
+							class="btn btn-danger waves-effect waves-light">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end row -->
+		<script type="text/javascript"
+			src="/apps/employee/tbn_employee_list.js"></script>
+	</div>
+	<!-- container -->
+</body>
+</html>
